@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password', 255);
-            $table->unsignedBigInteger('role_id');
+            $table->string('name')->comment('ユーザー名');
+            $table->string('email')->comment('メールアドレス')->unique();
+            $table->string('password', 255)->comment('パスワード');
+            $table->unsignedBigInteger('role_id')->comment('役割');
             $table->foreign('role_id')->references('id')->on('user_roles');
-            $table->unsignedBigInteger('company_id');
+            $table->unsignedBigInteger('company_id')->comment('会社ID');
             $table->foreign('company_id')->references('id')->on('companies');
             $table->timestamps();
             $table->softDeletes('deleted_at');
