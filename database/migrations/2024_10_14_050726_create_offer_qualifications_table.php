@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('offer_qualifications', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->comment('資格名');
             $table->timestamps();
+            $table->softDeletes('deleted_at');
         });
     }
 

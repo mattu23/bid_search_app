@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('offer_types', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->comment('案件タイプ');
             $table->timestamps();
         });
     }

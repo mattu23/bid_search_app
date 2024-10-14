@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('offer_categories', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name')->comment('入札形式名');
         });
     }
 
