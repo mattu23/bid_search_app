@@ -1,8 +1,7 @@
-version: '3.8'
 services:
   app:
-    image: laravel:8
-    container_name: laravel_app
+    image: php:8.0-fpm
+    container_name: bid_search_app
     ports:
       - "8080:80"
     volumes:
@@ -12,6 +11,9 @@ services:
       - db
     networks:
       - app-network
+    environment:           # Composerのインストールに必要な環境変数
+      COMPOSER_ALLOW_SUPERUSER: "1"
+
   db:
     image: mysql:8
     container_name: mysql_db
@@ -26,9 +28,11 @@ services:
       - db_data:/var/lib/mysql
     networks:
       - app-network
+
 networks:
   app-network:
     driver: bridge
+
 volumes:
   db_data:
     driver: local
