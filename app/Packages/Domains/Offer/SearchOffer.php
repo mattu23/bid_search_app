@@ -21,9 +21,9 @@ class SearchOffer
     private string $name;
 
     /**
-    * @var int
+    * @var string
     */
-    private int $typeId;
+    private string $type;
 
     /**
     * @var int
@@ -73,7 +73,7 @@ class SearchOffer
     {
       $this->id = $data['id'];
       $this->name = $data['name'];
-      $this->typeId = $data['type_id'];
+      $this->type = $data['type'];
       $this->categoryId = $data['category_id'];
       $this->prefectureId = $data['prefecture_id'];
       $this->file = $data['file'] ?? null;
